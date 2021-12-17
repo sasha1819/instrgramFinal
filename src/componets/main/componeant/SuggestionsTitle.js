@@ -1,13 +1,15 @@
 import React from "react";
 
-function SuggestionsTitle(props) {
+function SuggestionsTitle({title,labelBtn}) {
+
+
   return (
     <div className="title-container">
       <div className="title">
-        <p>{props.title}</p>
+        <p>{title}</p>
       </div>
       <div className="btn">
-        <button>{props.labelBtn}</button>
+        <button>{labelBtn}</button>
       </div>
     </div>
   );

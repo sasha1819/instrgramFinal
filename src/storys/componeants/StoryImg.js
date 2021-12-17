@@ -1,16 +1,35 @@
 import React from 'react'
 import './StoryImg.css'
-function StoryImg(props) {
+
+
+function StoryImg({ user ,onClick }) {
+
+    const {img, username, isReadded, id} = user
+
+    const storyClick = ()=> {
+        onClick(id)
+    }
+
+    const setError = ()=> {
+            alert('1')
+        
+    }
+
+
     return (
-        <div onClick={() => props.onClick(props.user.id)} className="container-story">
-            <div className={`container-story-img ${props.user.isReadded ? 'reading' : 'not-reading'}`}>
-                <img className="image" src={props.user.img} alt="story-img" onerror={()=>{
-                    alert('1')
-                }}/>
-            </div>
-            <div className="user-name">
-                    <p>{props.user.username}</p>
-            </div>
+        <div 
+            className="container-story"
+            onClick={storyClick}>
+                <div className={`container-story-img ${isReadded ? 'reading' : 'not-reading'}`}>
+                    <img 
+                        className="image" 
+                        src={img} 
+                        alt="story-img" 
+                        onerror={setError}/>
+                </div>
+                <div className="user-name">
+                    <p>{username}</p>
+                </div>
         </div>
     )
 }
